@@ -1,7 +1,4 @@
-interface NoteInterface {
-  id: number
-  body: string
-}
+import { notFound } from "next/navigation"
 
 const getNote = async (id: number) => {
   return await fetch(`http://localhost:3001/notes/${id}`, { next: { revalidate: 0 } })
@@ -10,6 +7,7 @@ const getNote = async (id: number) => {
 
 export default async ({ params }: { params: { id: number } }) => {
   const note = await getNote(params.id)
+  if(!Object.keys(note).length) notFound()
 
   return (
     <p>
