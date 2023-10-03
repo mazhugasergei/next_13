@@ -17,7 +17,7 @@ export default async () => {
     <section className="notes">
       { notes && notes.map((note: NoteInterface) => (
         <Link href={`/${note.id}`} className="note" key={note.id}>
-          <span>{ note.body.length >= 70 ? note.body.substring(0, 67)+"..." : note.body }</span>
+          <span>{ note.body }</span>
         </Link>
       )) }
     </section>

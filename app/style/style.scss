@@ -5,21 +5,12 @@
 }
 
 :root{
-  --bg: #F6F6F6;
+  --bg: #F6F6F8;
   --bg-hover: #F1F1F3;
 }
 
 body{
   background: #F0F0F2;
-}
-
-a{
-  text-decoration: none;
-  color: #000;
-}
-
-p{
-  line-height: 1.5;
 }
 
 main{
@@ -30,6 +21,26 @@ main{
   padding: 2rem;
   margin: 5rem auto;
 }
+
+
+
+// typography
+
+body, input, textarea, button{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+p{ line-height: 1.5; }
+
+
+
+// components
 
 nav{
   display: flex;
@@ -45,12 +56,32 @@ nav{
 }
 
 .btn{
+  cursor: pointer;
+  border: none;
   border-radius: .5rem;
-  padding: .75rem 1rem;
-  &:hover{ background: var(--bg); }
+  padding: .75rem 1.25rem;
+  &:not(.transparent){
+    background: #000;
+    color: #fff;
+  }
+  &.transparent{
+    padding: .75rem 1rem;
+    &:hover{ background: var(--bg); }
+  }
 }
 
-.notes{
+input, textarea{
+  border: none;
+  background: var(--bg);
+  border-radius: .3rem;
+  padding: 1rem;
+}
+
+
+
+// sections
+
+section.notes{
   display: flex;
   flex-flow: column;
   gap: .75rem;
@@ -66,6 +97,20 @@ nav{
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
       text-overflow: ellipsis;
+    }
+  }
+}
+
+section.create{
+  form{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    gap: 1rem;
+    textarea{
+      resize: none;
+      width: 100%;
+      height: 10rem;
     }
   }
 }

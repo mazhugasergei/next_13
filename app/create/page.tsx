@@ -1,5 +1,10 @@
 export default () => {
   return (
-    <div>create</div>
+    <section className="create">
+      <form method="post">
+        <textarea placeholder="Text" />
+        <button className="btn">Create</button>
+      </form>
+    </section>
   )
 }
